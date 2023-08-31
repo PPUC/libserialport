@@ -1,5 +1,9 @@
 #pragma once
 
+#define SERIALPORT_VERSION_MAJOR 0 // X Digits
+#define SERIALPORT_VERSION_MINOR 1 // Max 2 Digits
+#define SERIALPORT_VERSION_PATCH 0 // Max 2 Digits
+
 #ifndef __ANDROID__
 #include "serialib/serialib.h"
 #endif
