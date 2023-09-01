@@ -11,7 +11,7 @@
 #include <inttypes.h>
 
 #ifdef __ANDROID__
-typedef void* (*AndroidGetJNIEnvFunc)();
+typedef void *(*AndroidGetJNIEnvFunc)();
 #endif
 
 class SerialPort
