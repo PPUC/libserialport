@@ -51,11 +51,6 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 
-set(MINIZ_SOURCES
-   src/miniz/miniz.h
-   src/miniz/miniz.c
-)
-
 if(USE_ANDROID)
 else()
     set(SERIALIB_SOURCES
@@ -94,7 +89,7 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     endif()
 
    add_library(serialport_static STATIC ${LIBRARY_SOURCES})
-   set_target_properties(serialport_static PROPERTIES OUTPUT_NAME "serialport")
+   set_target_properties(serialport_static PROPERTIES OUTPUT_NAME ${LIB_NAME})
    target_include_directories(serialport_static PUBLIC ${INCLUDE_DIRS})
    if(WIN32)
       target_link_libraries(serialport_static PRIVATE ws2_32)
@@ -105,5 +100,7 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
    install(FILES src/SerialPort.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 
 else()
-    add_library(SerialPort ${LIBRARY_SOURCES})
+   if(NOT TARGET SerialPort)
+      add_library(SerialPort ${LIBRARY_SOURCES})
+   endif()
 endif()
