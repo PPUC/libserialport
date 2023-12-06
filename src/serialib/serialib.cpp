@@ -70,6 +70,9 @@ serialib::~serialib()
                         - 128000
                         - 256000
 
+               \n Optionally supported baud rates, required by ZeDMD:\n
+                        - 921600
+
                \n Supported baud rate for Linux :\n
                         - 110
                         - 300
@@ -207,6 +210,9 @@ char serialib::openDevice(const char *Device, const unsigned int Bauds,
         break;
     case 256000:
         dcbSerialParams.BaudRate = CBR_256000;
+        break;
+    case 921600:
+        dcbSerialParams.BaudRate = 921600;
         break;
     default:
         return -4;

@@ -88,16 +88,16 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
        )
     endif()
 
-   add_library(serialport_static STATIC ${LIBRARY_SOURCES})
-   set_target_properties(serialport_static PROPERTIES OUTPUT_NAME ${LIB_NAME})
-   target_include_directories(serialport_static PUBLIC ${INCLUDE_DIRS})
-   if(WIN32)
-      target_link_libraries(serialport_static PRIVATE ws2_32)
-   endif()
-   install(TARGETS serialport_static
-      LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-   )
-   install(FILES src/SerialPort.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+#   add_library(serialport_static STATIC ${LIBRARY_SOURCES})
+#   set_target_properties(serialport_static PROPERTIES OUTPUT_NAME ${LIB_NAME})
+#   target_include_directories(serialport_static PUBLIC ${INCLUDE_DIRS})
+#   if(WIN32)
+#      target_link_libraries(serialport_static PRIVATE ws2_32)
+#   endif()
+#   install(TARGETS serialport_static
+#      LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+#   )
+#   install(FILES src/SerialPort.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 
 else()
    if(NOT TARGET SerialPort)
